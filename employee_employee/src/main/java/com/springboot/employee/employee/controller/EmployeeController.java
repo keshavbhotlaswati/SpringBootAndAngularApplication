@@ -42,35 +42,9 @@ public class EmployeeController {
 	}
 	
 	
-	@GetMapping("/page/{pageNum}")
-	public  List<Employee> viewPage(
-	        @PathVariable(name = "pageNum") int pageNum) {
-	     
-	    Page<Employee> page = emp_service.listAllEmployees(pageNum);
-	     
-	    List<Employee> listEmployees = page.getContent();
-	     
-	   
-	     
-	    return listEmployees;
-	}
 	
-	@GetMapping("/page")
-	public ResponseEntity<List<Employee>> getAllEmployees(
-            @RequestParam Integer pageNo, 
-            @RequestParam(defaultValue = "10") Integer pageSize
-          ) 
-{
-		
-		
-List<Employee> list = emp_service.getAllEmployees(pageNo-1, pageSize);
-
-
-
-return new ResponseEntity<List<Employee>>(list, new HttpHeaders(), HttpStatus.OK); 
-
-
-}
+	
+	
 	
 	@GetMapping("/employees/{empId}")
 	public Employee getEmployee(@PathVariable("empId") int id){
@@ -109,40 +83,7 @@ return new ResponseEntity<List<Employee>>(list, new HttpHeaders(), HttpStatus.OK
 	
 	}
 	
-	@GetMapping("/page/employee_manager/{empmanager}")
-	public ResponseEntity<List<Employee>> getAllEmployees(
-          @PathVariable("empmanager") String empmanager,@RequestParam Integer pagenumber
-             ) 
-	{
-	     
-	     
-	     List<Employee> list=emp_service.getEmployeeByEmpManager(empmanager);
-	     Slice<Employee> slice = null;
-         List<Employee> employeeList;
-	     Pageable pageable = PageRequest.of(pagenumber-1, 2);
-	     while (true) {
-	         slice = emp_service.getAllEmployeeByManager(empmanager,pageable);
-	         int number = slice.getNumber();
-	         int numberOfElements = slice.getNumberOfElements();
-	         int size = slice.getSize();
-	         System.out.printf("slice info - page number %s, numberOfElements: %s, size: %s%n",
-	                 number, numberOfElements, size);
-	         employeeList = slice.getContent();
-	         employeeList.forEach(System.out::println);
-	         if(!slice.previousPageable().hasPrevious()) {
-	         	
-	         }
-	             if (!slice.hasNext()) {
-	                 break;
-	             }
-	             pageable = slice.nextPageable();
-	             pageable=slice.previousPageable();
-	             return new ResponseEntity<List<Employee>>(employeeList, new HttpHeaders(), HttpStatus.OK);
-	         }
-	  return null;
-	 
-	}
-
+	
 
 	@PostMapping("/employees")
 	@ResponseStatus(code = HttpStatus.OK)
