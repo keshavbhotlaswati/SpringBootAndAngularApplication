@@ -1,0 +1,34 @@
+<div class="col-md-6">
+    <h2 class="text-center">Add User</h2>
+    <form>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="name" [(ngModel)]="user1.first_name" placeholder="firstName" name="first_name" class="form-control" id="first_name">
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input [(ngModel)]="user1.last_name" placeholder="lastName" name="last_name" class="form-control" id="last_name">
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input [(ngModel)]="user1.username" placeholder="username" name="username" class="form-control" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password"> Password:</label>
+            <input [(ngModel)]="user1.password" placeholder="password" name="password" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+            <label for="Work Experienc"> Work Experience</label>
+            <input [(ngModel)]="user1.work_experience" placeholder="Work Experienc" name="work_experience" class="form-control" id="work_experience">
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="userId">User Id</label>
+            <input [(ngModel)]="user1.userid" placeholder="User Id" name="User Id" class="form-control" id="userid">
+        </div> -->
+
+        <button class="btn btn-success" (click)="createUser()">Create</button>
+        <a [routerLink]="['']"> Back </a>
+    </form>
+</div>

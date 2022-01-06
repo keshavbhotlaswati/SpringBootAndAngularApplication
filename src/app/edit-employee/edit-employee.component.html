@@ -1,0 +1,34 @@
+<div class="col-md-6">
+    <h2 class="text-center">Add Employee</h2>
+    <form>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="name" [(ngModel)]="selectedEmployee.name" placeholder="Name" name="name" class="form-control" id="name">
+        </div>
+
+        <div class="form-group">
+            <label for="designation">Designation:</label>
+            <input [(ngModel)]="selectedEmployee.designation" placeholder="Designation" name="designation" class="form-control" id="designation">
+        </div>
+        <div class="form-group">
+            <label for="join_date">Join Date:</label>
+            <input [(ngModel)]="selectedEmployee.join_date" placeholder="Join_date" name="join_date" class="form-control" id="join_date">
+        </div>
+        <div class="form-group">
+            <label for="Salary"> Salary</label>
+            <input [(ngModel)]="selectedEmployee.salary" placeholder="Salary" name="salary" class="form-control" id="salary">
+        </div>
+        <div class="form-group">
+            <label for="Employee Manager"> Employee Manager</label>
+            <input [(ngModel)]="selectedEmployee.empmanager" placeholder="Employee Manager" name="empManager" class="form-control" id="empmanager">
+        </div>
+
+        <div class="form-group">
+            <label for="empId">Employee Id</label>
+            <input [(ngModel)]="selectedEmployee.id" placeholder="Employee Id" name="Employee Id" class="form-control" id="employeeid">
+        </div>
+
+        <button class="btn btn-success" (click)="saveChanges()">Save</button>
+        <a [routerLink]="['/employee']"> Back </a>
+    </form>
+</div>
