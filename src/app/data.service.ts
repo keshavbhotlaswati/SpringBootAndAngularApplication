@@ -23,7 +23,7 @@ constructor(private httpClient:HttpClient) {
   }
 
   public deleteEmployee(employee:Employee) {
-    return this.httpClient.delete<Employee>("http://localhost:8080/employees" + "/"+ employee.id);
+    return this.httpClient.delete<Employee>("http://localhost:8080/delemployees" + "/"+ employee.id);
   }
 
   public createEmployee(employee:Employee) {
