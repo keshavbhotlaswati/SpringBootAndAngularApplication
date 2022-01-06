@@ -164,7 +164,7 @@ return new ResponseEntity<List<Employee>>(list, new HttpHeaders(), HttpStatus.OK
 		return emp_service.update(id, emp);
 	}
 	
-	@DeleteMapping("/employees/{empId}")
+	@DeleteMapping("/delemployees/{empId}")
 	public Employee deleteEmp(@PathVariable("empId")int id) {
 		return emp_service.remove(id);
 	}
