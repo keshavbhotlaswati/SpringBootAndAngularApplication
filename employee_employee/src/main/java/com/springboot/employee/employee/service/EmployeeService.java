@@ -22,13 +22,6 @@ public class EmployeeService {
 	@Autowired
 	EmployeeRepository  emp_repos;
 	
-	public Page<Employee> listAllEmployees(int pageNum) {
-	    int pageSize = 10;
-	     
-	    Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
-	     
-	    return emp_repos.findAll(pageable);
-	}
 	
 	public Employee save(Employee emp) {
 		return emp_repos.save(emp);
@@ -43,18 +36,7 @@ public class EmployeeService {
 		
 		return null;
 	}
-	 public List<Employee> getAllEmployees(Integer pageNo, Integer pageSize)
-	    {
-	        Pageable paging = PageRequest.of(pageNo, pageSize);
-	 
-	        Page<Employee> pagedResult = emp_repos.findAll(paging);
-	         
-	        if(pagedResult.hasContent()) {
-	            return pagedResult.getContent();
-	        } else {
-	         return null;
-	        }
-	    }
+	
 	 
 	
 	public List<Employee> getEmployeeByName(String name) {
@@ -117,8 +99,5 @@ public class EmployeeService {
 	}
 
 	
-   public Slice<Employee> getAllEmployeeByManager(String empmanager,Pageable page)
-   {
-	   return emp_repos.findByEmpManager(empmanager, page);
-   }
+
 }
