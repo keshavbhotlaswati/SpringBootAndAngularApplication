@@ -20,8 +20,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer>  {
 	List<Employee> findByEmpManager(String empmanager);
 	
 	
-	Slice<Employee> findByName(String name,Pageable page);
-	Slice<Employee> findByEmpManager(String empmanager,Pageable page);
 	
 	
 }
