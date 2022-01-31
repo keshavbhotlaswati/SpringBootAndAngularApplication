@@ -14,6 +14,7 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeComponent } from './employee/employee.component';
 import { UserComponent } from './user/user.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { UserComponent } from './user/user.component';
   ],
   imports: [
     BrowserModule,FormsModule,
-    AppRoutingModule, HttpClientModule
+    AppRoutingModule, HttpClientModule,NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
